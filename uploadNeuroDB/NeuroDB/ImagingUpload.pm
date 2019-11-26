@@ -317,11 +317,12 @@ RETURNS: 1 on success, 0 on failure
 
 sub runDicomTar {
     my $this              = shift;
+    my $dbh               = shift;  ### ugly but have to pass the new DB connection because it gets lost
     my $tarchive_id       = undef;
     my $query             = '';
     my $where             = '';
     my $tarchive_location = NeuroDB::DBI::getConfigSetting(
-                            $this->{dbhr},'tarchiveLibraryDir'
+                            $dbh,'tarchiveLibraryDir'
                             );
     my $command = sprintf(
         "dicomTar.pl %s %s -database -profile %s",
@@ -339,7 +340,7 @@ sub runDicomTar {
         ########################################################
 
         $query = "SELECT TarchiveID FROM tarchive WHERE SourceLocation =?";
-        my $sth = ${ $this->{'dbhr'} }->prepare($query);
+        my $sth = ${ $dbh }->prepare($query);
         $sth->execute( $this->{'uploaded_temp_folder'} );
         if ( $sth->rows > 0 ) {
             $tarchive_id = $sth->fetchrow_array();
@@ -351,7 +352,7 @@ sub runDicomTar {
         $where = "WHERE UploadID=?";
         $query = "UPDATE mri_upload SET TarchiveID='$tarchive_id'";
         $query = $query . $where;
-        my $mri_upload_update = ${ $this->{'dbhr'} }->prepare($query);
+        my $mri_upload_update = ${ $dbh }->prepare($query);
         $mri_upload_update->execute( $this->{'upload_id'} );
         return 1;
     }
@@ -405,9 +406,10 @@ RETURNS: 1 on success, 0 on failure
 
 sub runTarchiveLoader {
     my $this = shift;
+    my $dbh  = shift;   ## uglyyyyy temporary fix for the DB connection lost
     my $archived_file_path = $this->getTarchiveFileLocation();
     my $bin_dirPath = NeuroDB::DBI::getConfigSetting(
-                        $this->{dbhr},'MRICodePath'
+                        $dbh,'MRICodePath'
                         );
     my $command = sprintf(
         "%s/uploadNeuroDB/tarchiveLoader.pl -globLocation -profile %s %s -uploadID %s",

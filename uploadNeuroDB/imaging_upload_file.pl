@@ -254,7 +254,8 @@ spool($message,'N', $notify_notsummary);
 ################################################################
 ############### Run DicomTar  ##################################
 ################################################################
-$output = $imaging_upload->runDicomTar();
+$dbh = &NeuroDB::DBI::connect_to_db(@Settings::db);  # UGLY KLUDGE BY PIERRE RIOUX
+$output = $imaging_upload->runDicomTar(\$dbh);   ## Follow up on the uglyness...
 if ( !$output ) {
     $imaging_upload->updateMRIUploadTable(
 	'Inserting', 0);
@@ -269,7 +270,8 @@ spool($message,'N', $notify_notsummary);
 ################################################################
 ############### Run runTarchiveLoader###########################
 ################################################################
-$output = $imaging_upload->runTarchiveLoader();
+$dbh = &NeuroDB::DBI::connect_to_db(@Settings::db);  # UGLY KLUDGE BY PIERRE RIOUX
+$output = $imaging_upload->runTarchiveLoader(\$dbh);
 $imaging_upload->updateMRIUploadTable('Inserting', 0);
 if ( !$output ) {
     $message = "\nThe tarchiveLoader.pl insertion script has failed.\n";

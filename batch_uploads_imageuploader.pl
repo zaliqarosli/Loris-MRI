@@ -171,6 +171,8 @@ close STDIN;
 ## foreach series, batch magic
 foreach my $input (@fullpatharray)
 {
+    $dbh = &NeuroDB::DBI::connect_to_db(@Settings::db);
+
     $counter++;
     $stdout = $stdoutbase.$counter;
     $stderr = $stderrbase.$counter;
