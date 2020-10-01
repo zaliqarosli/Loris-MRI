@@ -324,20 +324,20 @@ if (defined $CandMismatchError) {
 my ($sessionID) =
     $utility->setMRISession($subjectIDsref, \%tarchiveInfo, $upload_id);
 
-################################################################
-### Extract the tarchive and feed the dicom data dir to ######## 
-### The uploader ###############################################
-################################################################
-my ($ExtractSuffix,$study_dir,$header) = 
-    $utility->extractAndParseTarchive($tarchive, $upload_id);
-
-################################################################
-# Optionally do extra filtering on the dicom data, if needed ###
-################################################################
-if ( defined( &Settings::dicomFilter )) {
-    Settings::dicomFilter($study_dir, \%tarchiveInfo);
-}
-
+#################################################################
+#### Extract the tarchive and feed the dicom data dir to ######## 
+#### The uploader ###############################################
+#################################################################
+#my ($ExtractSuffix,$study_dir,$header) = 
+#    $utility->extractAndParseTarchive($tarchive, $upload_id);
+#
+#################################################################
+## Optionally do extra filtering on the dicom data, if needed ###
+#################################################################
+#if ( defined( &Settings::dicomFilter )) {
+#    Settings::dicomFilter($study_dir, \%tarchiveInfo);
+#}
+#
 ################################################################
 ##Update the IsTarchiveValidated flag in the mri_upload table ##
 ################################################################
