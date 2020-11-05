@@ -335,6 +335,7 @@ sub grep_FileIDs_to_deface {
         $query .= sprintf(" AND (%s) ", join(" OR ", @where));
     }
 
+    my $dbh = &NeuroDB::DBI::connect_to_db(@Settings::db);
     my $sth = $dbh->prepare($query);
 
     # create array of parameters
@@ -378,6 +379,7 @@ RETURNS: the candidate's C<CandID> and the session visit label
 sub grep_candID_visit_from_SessionID {
     my ($session_id) = @_;
 
+    my $dbh = &NeuroDB::DBI::connect_to_db(@Settings::db);
     my $query  = "SELECT CandID, Visit_label FROM session WHERE ID = ?";
     my $result = $dbh->selectrow_hashref($query, undef, $session_id);
 
@@ -419,6 +421,7 @@ sub check_if_deface_files_already_in_db {
     $query   .= " AND SessionID = ?";
 
     # prepare and execute the query
+    my $dbh = &NeuroDB::DBI::connect_to_db(@Settings::db);
     my $sth   = $dbh->prepare($query);
     $sth->execute(@defaced_scan_types, $session_id);
 
@@ -673,6 +676,7 @@ INPUT: the scan type to look for or insert in the C<mri_scan_type> table
 sub create_defaced_scan_type {
     my ($scan_type) = @_;
 
+    my $dbh        = &NeuroDB::DBI::connect_to_db(@Settings::db);
     my $select     = "SELECT COUNT(*) FROM mri_scan_type WHERE Scan_type = ?";
     my $select_sth = $dbh->prepare($select);
     $select_sth->execute($scan_type);
