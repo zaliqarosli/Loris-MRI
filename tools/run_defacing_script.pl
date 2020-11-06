@@ -56,19 +56,19 @@ use NeuroDB::ExitCodes;
 # The %SPECIAL_ACQUISITIONS_FILTER variable has been created to filter out the
 # correct FileIDs of the images that need to be defaced for those special modalities
 my %SPECIAL_ACQUISITIONS_FILTER = (
-    'T2star'                   => 'ORIGINAL\\PRIMARY\\M\\ND',
-    'GRE10echosDrCollinsTE1'   => 'ORIGINAL\\PRIMARY\\M\\ND',
-    'GRE10echosDrCollinsTE2'   => 'ORIGINAL\\PRIMARY\\M\\ND',
-    'GRE10echosDrCollinsTE3'   => 'ORIGINAL\\PRIMARY\\M\\ND',
-    'GRE10echosDrCollinsTE4'   => 'ORIGINAL\\PRIMARY\\M\\ND',
-    'GRE10echosDrCollinsTE5'   => 'ORIGINAL\\PRIMARY\\M\\ND',
-    'GRE10echosDrCollinsTE6'   => 'ORIGINAL\\PRIMARY\\M\\ND',
-    'GRE10echosDrCollinsTE7'   => 'ORIGINAL\\PRIMARY\\M\\ND',
-    'GRE10echosDrCollinsTE8'   => 'ORIGINAL\\PRIMARY\\M\\ND',
-    'GRE10echosDrCollinsTE9'   => 'ORIGINAL\\PRIMARY\\M\\ND',
-    'GRE10echosDrCollinsTE10'  => 'ORIGINAL\\PRIMARY\\M\\ND',
-    'BOLDRSgrefieldmappingTE1' => 'ORIGINAL\\PRIMARY\\M\\ND\\NORM',
-    'BOLDRSgrefieldmappingTE2' => 'ORIGINAL\\PRIMARY\\M\\ND\\NORM'
+    'T2star'                   => 'ORIGINAL\\\\\\\\PRIMARY\\\\\\\\M\\\\\\\\ND',
+    'GRE10echosDrCollinsTE1'   => 'ORIGINAL\\\\\\\\PRIMARY\\\\\\\\M\\\\\\\\ND',
+    'GRE10echosDrCollinsTE2'   => 'ORIGINAL\\\\\\\\PRIMARY\\\\\\\\M\\\\\\\\ND',
+    'GRE10echosDrCollinsTE3'   => 'ORIGINAL\\\\\\\\PRIMARY\\\\\\\\M\\\\\\\\ND',
+    'GRE10echosDrCollinsTE4'   => 'ORIGINAL\\\\\\\\PRIMARY\\\\\\\\M\\\\\\\\ND',
+    'GRE10echosDrCollinsTE5'   => 'ORIGINAL\\\\\\\\PRIMARY\\\\\\\\M\\\\\\\\ND',
+    'GRE10echosDrCollinsTE6'   => 'ORIGINAL\\\\\\\\PRIMARY\\\\\\\\M\\\\\\\\ND',
+    'GRE10echosDrCollinsTE7'   => 'ORIGINAL\\\\\\\\PRIMARY\\\\\\\\M\\\\\\\\ND',
+    'GRE10echosDrCollinsTE8'   => 'ORIGINAL\\\\\\\\PRIMARY\\\\\\\\M\\\\\\\\ND',
+    'GRE10echosDrCollinsTE9'   => 'ORIGINAL\\\\\\\\PRIMARY\\\\\\\\M\\\\\\\\ND',
+    'GRE10echosDrCollinsTE10'  => 'ORIGINAL\\\\\\\\PRIMARY\\\\\\\\M\\\\\\\\ND',
+    'BOLDRSgrefieldmappingTE1' => 'ORIGINAL\\\\\\\\PRIMARY\\\\\\\\M\\\\\\\\ND\\\\\\\\NORM',
+    'BOLDRSgrefieldmappingTE2' => 'ORIGINAL\\\\\\\\PRIMARY\\\\\\\\M\\\\\\\\ND\\\\\\\\NORM'
 );
 
 # The @MULTI_CONTRAST_ACQUISITIONS_BASE_NAMES variable will store the base names
