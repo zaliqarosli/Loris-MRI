@@ -56,21 +56,19 @@ use NeuroDB::ExitCodes;
 # The %SPECIAL_ACQUISITIONS_FILTER variable has been created to filter out the
 # correct FileIDs of the images that need to be defaced for those special modalities
 my %SPECIAL_ACQUISITIONS_FILTER = (
-    'fieldmap'      => 'ORIGINAL\\PRIMARY\\M\\ND',
-    'MP2RAGEinv1'   => 'ORIGINAL\\\\\\\\PRIMARY\\\\\\\\M\\ND\\NORM',
-    'MP2RAGEinv2'   => 'ORIGINAL\\\\\\\\PRIMARY\\\\\\\\M\\ND\\NORM',
-    'qT2starEcho1'  => 'ORIGINAL\\\\\\\\PRIMARY\\\\\\\\M\\\\\\\\ND',
-    'qT2starEcho2'  => 'ORIGINAL\\\\\\\\PRIMARY\\\\\\\\M\\\\\\\\ND',
-    'qT2starEcho3'  => 'ORIGINAL\\\\\\\\PRIMARY\\\\\\\\M\\\\\\\\ND',
-    'qT2starEcho4'  => 'ORIGINAL\\\\\\\\PRIMARY\\\\\\\\M\\\\\\\\ND',
-    'qT2starEcho5'  => 'ORIGINAL\\\\\\\\PRIMARY\\\\\\\\M\\\\\\\\ND',
-    'qT2starEcho6'  => 'ORIGINAL\\\\\\\\PRIMARY\\\\\\\\M\\\\\\\\ND',
-    'qT2starEcho7'  => 'ORIGINAL\\\\\\\\PRIMARY\\\\\\\\M\\\\\\\\ND',
-    'qT2starEcho8'  => 'ORIGINAL\\\\\\\\PRIMARY\\\\\\\\M\\\\\\\\ND',
-    'qT2starEcho9'  => 'ORIGINAL\\\\\\\\PRIMARY\\\\\\\\M\\\\\\\\ND',
-    'qT2starEcho10' => 'ORIGINAL\\\\\\\\PRIMARY\\\\\\\\M\\\\\\\\ND',
-    'qT2starEcho11' => 'ORIGINAL\\\\\\\\PRIMARY\\\\\\\\M\\\\\\\\ND',
-    'qT2starEcho12' => 'ORIGINAL\\\\\\\\PRIMARY\\\\\\\\M\\\\\\\\ND'
+    'T2star'                   => 'ORIGINAL\\PRIMARY\\M\\ND',
+    'GRE10echosDrCollinsTE1'   => 'ORIGINAL\\PRIMARY\\M\\ND',
+    'GRE10echosDrCollinsTE2'   => 'ORIGINAL\\PRIMARY\\M\\ND',
+    'GRE10echosDrCollinsTE3'   => 'ORIGINAL\\PRIMARY\\M\\ND',
+    'GRE10echosDrCollinsTE4'   => 'ORIGINAL\\PRIMARY\\M\\ND',
+    'GRE10echosDrCollinsTE5'   => 'ORIGINAL\\PRIMARY\\M\\ND',
+    'GRE10echosDrCollinsTE6'   => 'ORIGINAL\\PRIMARY\\M\\ND',
+    'GRE10echosDrCollinsTE7'   => 'ORIGINAL\\PRIMARY\\M\\ND',
+    'GRE10echosDrCollinsTE8'   => 'ORIGINAL\\PRIMARY\\M\\ND',
+    'GRE10echosDrCollinsTE9'   => 'ORIGINAL\\PRIMARY\\M\\ND',
+    'GRE10echosDrCollinsTE10'  => 'ORIGINAL\\PRIMARY\\M\\ND',
+    'BOLDRSgrefieldmappingTE1' => 'ORIGINAL\\PRIMARY\\M\\ND\\NORM',
+    'BOLDRSgrefieldmappingTE2' => 'ORIGINAL\\PRIMARY\\M\\ND\\NORM'
 );
 
 # The @MULTI_CONTRAST_ACQUISITIONS_BASE_NAMES variable will store the base names
@@ -79,7 +77,7 @@ my %SPECIAL_ACQUISITIONS_FILTER = (
 # acquisition (a.k.a. fieldmap_file1,fieldmap_file2) which will tell the
 # deface_minipipe.pl script to not create 2 XFMs but instead reuse the XFM from
 # fieldmap_file1 to register fieldmap_file2
-my @MULTI_CONTRAST_ACQUISITIONS_BASE_NAMES = ( "fieldmap", "MP2RAGE", "qT2star" );
+my @MULTI_CONTRAST_ACQUISITIONS_BASE_NAMES = ( "T2star", "BOLDRSgrefieldmappingTE", "GRE10echosDrCollinsTE" );
 
 
 
